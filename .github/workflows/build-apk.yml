@@ -31,17 +31,14 @@ jobs:
         java-version: '17'
 
     - name: Setup Android SDK
-      uses: malinskiy/action-android/install-sdk@v1
-      with:
-        api-level: 34
-        target: google_apis
+      uses: android-actions/setup-android@v3
 
     - name: Accept Android licenses
-      run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+      run: yes | sdkmanager --licenses
 
     - name: Add Capacitor Android
       run: |
-        npx cap add android
+        npx cap add android || true
         npx cap sync android
 
     - name: Build APK
