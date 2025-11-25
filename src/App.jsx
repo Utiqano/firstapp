@@ -1,14 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Login from './pages/Login'
-import Home from './pages/Home'
+import Matches from './pages/Matches'
+import { supabase } from './lib/supabase'
 import './App.css'
 
 function App() {
   const [user, setUser] = useState(null)
 
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null)
+    })
+
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null)
+    })
+
+    return () => listener.subscription.unsubscribe()
+  }, [])
+
   return (
     <div className="App">
-      {user ? <Home user={user} setUser={setUser} /> : <Login setUser={setUser} />}
+      {user ? <Matches user={user} setUser={setUser} /> : <Login setUser={setUser} />}
     </div>
   )
 }

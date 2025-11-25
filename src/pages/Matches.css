@@ -1,0 +1,152 @@
+/* تنظيم كامل + متجاوب + أنيق */
+.matches-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a3d2e 0%, #117a5d 50%, #1a936f 100%);
+  color: white;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  display: flex;
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  padding-left: 380px;
+  transition: all 0.4s ease;
+}
+
+/* هيدر منظم ومركز */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 3.5em;
+  margin: 0 0 10px 0;
+  background: linear-gradient(90deg, #ffc107, #ff8c00);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 900;
+}
+
+.header p {
+  font-size: 1.5em;
+  margin: 10px 0;
+  opacity: 0.95;
+}
+
+/* تبديل اللغة – أنيق ومنظم */
+.language-switcher {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.language-switcher button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 2px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.language-switcher button.active {
+  background: #ffc107;
+  color: #000;
+  border-color: #fff;
+  transform: scale(1.1);
+}
+
+/* أزرار الهيدر – متساوية ومرتبة */
+.header-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.header-buttons button {
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 1.1em;
+  font-weight: bold;
+  min-width: 180px;
+}
+
+.add-btn    { background: #ffc107; color: #000; }
+.logout-btn { background: #d32f2f; color: white; }
+
+/* كروت الماتشات – كبيرة وواضحة ومنظمة */
+.matches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.match-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 32px;
+  text-align: center;
+  border: 2px solid rgba(255,255,255,0.25);
+  transition: all 0.4s ease;
+}
+
+.match-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  border-color: #ffc107;
+}
+
+.match-teams {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  font-size: 2em;
+  margin: 25px 0;
+  font-weight: 700;
+}
+
+.team span { font-size: 1.1em; }
+.team strong { font-size: 3em; color: #ffc107; }
+
+.vs {
+  font-size: 3em;
+  font-weight: 900;
+  color: #ffc107;
+  text-shadow: 0 0 20px rgba(255,193,7,0.6);
+}
+
+.match-date {
+  background: rgba(0,0,0,0.4);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-size: 1em;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+/* متجاوب تمام */
+@media (max-width: 1000px) {
+  .main-content { padding-left: 30px; padding-right: 30px; }
+  .header h1 { font-size: 2.8em; }
+  .match-teams { font-size: 1.6em; }
+  .team strong { font-size: 2.4em; }
+  .vs { font-size: 2.4em; }
+}
+
+@media (max-width: 768px) {
+  .main-content { padding: 20px; padding-top: 30px; }
+  .header-buttons { flex-direction: column; align-items: center; }
+  .header-buttons button { width: 80%; max-width: 300px; }
+  .matches-grid { grid-template-columns: 1fr; }
+}
