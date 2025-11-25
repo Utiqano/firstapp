@@ -31,7 +31,7 @@ jobs:
         java-version: '17'
 
     - name: Setup Android SDK
-      uses: malinskiy/action-android/install-sdk@v2
+      uses: malinskiy/action-android/install-sdk@v1
       with:
         api-level: 34
         target: google_apis
